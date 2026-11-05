@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLE CENTER JM | iPhones Lacrados e Seminovos Premium</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0C10',
+                        brandNav: '#0B132B',
+                        brandNavy: '#1C2541',
+                        brandBlue: '#00B4D8',
+                        brandLightBlue: '#90E0EF',
+                        brandCyan: '#48CAE4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0C10;
+            color: #F3F4F6;
+        }
+        .glass-card {
+            background: rgba(28, 37, 65, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(72, 202, 228, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 180, 216, 0.4);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.25);
+        }
+        .glow-effect-lg {
+            box-shadow: 0 0 40px rgba(0, 180, 216, 0.35);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #90E0EF 50%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #90E0EF 0%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2541;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00B4D8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-brandBlue selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-brandNav/90 backdrop-blur-md border-b border-white/10 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandNavy to-brandBlue flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-brands fa-apple text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-wider text-white flex items-center gap-1">
+                            APPLE CENTER <span class="text-brandBlue">JM</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 tracking-widest uppercase">Premium Store</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links & Admin Button -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#produtos" class="text-gray-300 hover:text-brandBlue font-medium transition-colors">iPhones</a>
+                    <a href="#sobre" class="text-gray-300 hover:text-brandBlue font-medium transition-colors">Sobre Nós</a>
+                    <a href="https://www.instagram.com/applecenterjm?dlrf=MTVlNnEweWJxdmlubQ==" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-pink-500 font-medium transition-colors flex items-center gap-1.5">
+                        <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                    </a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="openCartModal()" class="relative p-2.5 text-gray-300 hover:text-brandBlue transition-colors rounded-xl bg-brandNavy/50 border border-white/5">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-1.5 -right-1.5 bg-brandBlue text-brandDark font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center border-2 border-brandDark">0</span>
+                    </button>
+
+                    <button onclick="openAdminModal()" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-brandLightBlue hover:text-white bg-brandNavy border border-brandBlue/30 hover:border-brandBlue rounded-xl transition-all shadow-md">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span class="hidden sm:inline">Painel Admin</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brandNav via-brandDark to-brandDark">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brandBlue rounded-full blur-[140px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandNavy/80 border border-brandBlue/30 text-brandLightBlue text-xs font-semibold mb-6 animate-pulse">
+                <i class="fa-solid fa-sparkles"></i> As melhores ofertas de iPhone da região
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+                Sua experiência Apple elevação <br class="hidden sm:inline" />
+                <span class="text-gradient">ao próximo nível.</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
+                iPhones novos e seminovos de altíssima qualidade com garantia, procedência e os melhores preços na <strong class="text-white">APPLE CENTER JM</strong>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#produtos" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brandBlue hover:bg-brandCyan text-brandDark font-bold text-lg transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brandBlue/20 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-mobile-screen-button"></i> Ver Catalógo de iPhones
+                </a>
+                <a href="https://wa.me/5563992482906?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20dúvida." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brandNavy hover:bg-brandNavy/80 border border-brandBlue/30 text-white font-bold text-lg transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i> Falar com Vendedor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content / Products Section -->
+    <main id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
+        
+        <!-- Controls: Search & Category Filter -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-brandBlue"></i> iPhones Disponíveis
+                </h2>
+                <p class="text-sm text-gray-400 mt-1">Selecione seu modelo ideal e peça direto via WhatsApp</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <!-- Search Input -->
+                <div class="relative min-w-[240px]">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="Buscar iPhone ex: Pro Max..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-brandNavy/60 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-brandBlue transition-all text-sm">
+                </div>
+
+                <!-- Storage Filter -->
+                <select id="storage-filter" onchange="filterProducts()" class="px-4 py-2.5 rounded-xl bg-brandNavy/60 border border-white/10 text-white focus:outline-none focus:border-brandBlue transition-all text-sm">
+                    <option value="">Todas as Capacidades</option>
+                    <option value="64GB">64GB</option>
+                    <option value="128GB">128GB</option>
+                    <option value="256GB">256GB</option>
+                    <option value="512GB">512GB</option>
+                    <option value="1TB">1TB</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dynamic products will be rendered here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="w-20 h-20 mx-auto rounded-full bg-brandNavy flex items-center justify-center text-gray-500 text-3xl mb-4">
+                <i class="fa-solid fa-mobile-xmark"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Nenhum iPhone encontrado</h3>
+            <p class="text-gray-400 text-sm mt-1">Tente mudar a busca ou o filtro aplicado.</p>
+        </div>
+    </main>
+
+    <!-- Features / Highlights -->
+    <section id="sobre" class="bg-brandNav/40 border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandNavy/30 border border-white/5">
+                <div class="p-3 bg-brandBlue/10 rounded-xl text-brandBlue text-2xl">
+                    <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base">Garantia & Procedência</h4>
+                    <p class="text-xs text-gray-400 mt-1">Todos os nossos aparelhos são 100% testados e inspecionados com garantia de funcionamento.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandNavy/30 border border-white/5">
+                <div class="p-3 bg-brandBlue/10 rounded-xl text-brandBlue text-2xl">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base">Entrega Rápida & Segura</h4>
+                    <p class="text-xs text-gray-400 mt-1">Entregamos em mãos na região com agilidade e máxima segurança para você.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandNavy/30 border border-white/5">
+                <div class="p-3 bg-brandBlue/10 rounded-xl text-brandBlue text-2xl">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base">Atendimento Exclusivo</h4>
+                    <p class="text-xs text-gray-400 mt-1">Suporte completo pré e pós-venda diretamente com a nossa equipe via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brandNav border-t border-white/10 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-brandBlue flex items-center justify-center text-brandDark font-bold text-lg">
+                    <i class="fa-brands fa-apple"></i>
+                </div>
+                <span class="text-lg font-bold text-white tracking-wide">APPLE CENTER JM</span>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center">
+                © <span id="year"></span> Apple Center JM. Todos os direitos reservados.
+            </p>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://www.instagram.com/applecenterjm?dlrf=MTVlNnEweWJxdmlubQ==" target="_blank" class="w-10 h-10 rounded-xl bg-brandNavy hover:bg-pink-600 flex items-center justify-center text-white transition-colors">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+                <a href="https://wa.me/5563992482906" target="_blank" class="w-10 h-10 rounded-xl bg-brandNavy hover:bg-green-600 flex items-center justify-center text-white transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5563992482906?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 glow-effect">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex justify-end">
+        <div class="w-full max-w-md bg-brandNav h-full flex flex-col shadow-2xl border-l border-white/10">
+            <div class="p-5 border-b border-white/10 flex items-center justify-between">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-brandBlue"></i> Seu Carrinho
+                </h3>
+                <button onclick="closeCartModal()" class="text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="cart-items-container" class="flex-grow overflow-y-auto p-5 space-y-4">
+                <!-- Cart items list dynamically inserted -->
+            </div>
+
+            <div class="p-5 border-t border-white/10 bg-brandDark/50 space-y-4">
+                <div class="flex items-center justify-between text-base font-bold">
+                    <span class="text-gray-300">Total:</span>
+                    <span id="cart-total" class="text-brandBlue text-xl">R$ 0,00</span>
+                </div>
+                <button onclick="checkoutCart()" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Finalizar Pedido no WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-md bg-brandNav border border-white/10 rounded-2xl p-6 shadow-2xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-brandBlue"></i> Acesso Restrito Admin
+                </h3>
+                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-gray-400 font-semibold mb-1">Senha de Administrador</label>
+                    <input type="password" id="admin-pass-input" placeholder="Digite a senha..." class="w-full px-4 py-3 rounded-xl bg-brandDark border border-white/10 text-white focus:outline-none focus:border-brandBlue">
+                    <p class="text-[11px] text-gray-500 mt-1">Senha padrão inicial: <code class="text-brandLightBlue">admin123</code></p>
+                </div>
+                
+                <div id="login-error" class="hidden text-red-400 text-xs font-semibold">
+                    <i class="fa-solid fa-circle-exclamation"></i> Senha incorreta! Tente novamente.
+                </div>
+
+                <button onclick="loginAdmin()" class="w-full py-3 rounded-xl bg-brandBlue hover:bg-brandCyan text-brandDark font-bold transition-all">
+                    Entrar no Painel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD MODAL -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md overflow-y-auto p-4 sm:p-6">
+        <div class="max-w-6xl mx-auto bg-brandNav border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-8">
+            
+            <!-- Dashboard Header -->
+            <div class="p-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-brandNavy/60">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brandBlue text-brandDark flex items-center justify-center font-bold text-xl">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-white">Painel de Gerenciamento de Estoque</h2>
+                        <p class="text-xs text-gray-400">Adicione, edite ou remova produtos da sua loja em tempo real</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="openChangePassModal()" class="px-3 py-2 rounded-lg bg-brandDark text-gray-300 hover:text-white text-xs font-medium border border-white/10">
+                        <i class="fa-solid fa-key text-brandBlue"></i> Alterar Senha
+                    </button>
+                    <button onclick="logoutAdmin()" class="px-4 py-2 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-400 text-xs font-bold transition-colors">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sair
+                    </button>
+                    <button onclick="closeAdminDashboard()" class="text-gray-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Content Grid -->
+            <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Product Form (Add / Edit) -->
+                <div class="lg:col-span-1 bg-brandDark/60 p-5 rounded-xl border border-white/5 space-y-4">
+                    <h3 id="form-title" class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-brandBlue"></i> Adicionar Novo iPhone
+                    </h3>
+
+                    <form id="product-form" onsubmit="handleProductSubmit(event)" class="space-y-3">
+                        <input type="hidden" id="prod-id">
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 mb-1">Modelo do iPhone</label>
+                            <input type="text" id="prod-name" required placeholder="Ex: iPhone 15 Pro Max" class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Preço (R$)</label>
+                                <input type="number" id="prod-price" step="0.01" required placeholder="6800.00" class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Capacidade</label>
+                                <select id="prod-storage" required class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                                    <option value="64GB">64GB</option>
+                                    <option value="128GB" selected>128GB</option>
+                                    <option value="256GB">256GB</option>
+                                    <option value="512GB">512GB</option>
+                                    <option value="1TB">1TB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Cor</label>
+                                <input type="text" id="prod-color" required placeholder="Ex: Titânio Natural" class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Qtd Estoque</label>
+                                <input type="number" id="prod-stock" required min="0" placeholder="5" class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 mb-1">URL da Imagem (Opcional)</label>
+                            <input type="url" id="prod-image" placeholder="https://..." class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                            <span class="text-[10px] text-gray-500">Deixe em branco para imagem padrão do modelo.</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 mb-1">Condição</label>
+                            <select id="prod-condition" class="w-full px-3 py-2 rounded-lg bg-brandNavy border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+                                <option value="Novo / Lacrado">Novo / Lacrado</option>
+                                <option value="Seminovo Premium (Grade A+)">Seminovo Premium (Grade A+)</option>
+                            </select>
+                        </div>
+
+                        <div class="pt-2 flex gap-2">
+                            <button type="submit" id="form-btn-submit" class="flex-grow py-2.5 rounded-lg bg-brandBlue hover:bg-brandCyan text-brandDark font-bold text-sm transition-colors">
+                                Salvar Produto
+                            </button>
+                            <button type="button" onclick="resetForm()" id="form-btn-cancel" class="hidden px-4 py-2.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-white font-bold text-sm transition-colors">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Products Table List -->
+                <div class="lg:col-span-2 overflow-x-auto">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-between">
+                        <span>Produtos Cadastrados</span>
+                        <span id="admin-prod-count" class="text-xs bg-brandNavy px-2.5 py-1 rounded-full text-brandLightBlue border border-white/10">0 itens</span>
+                    </h3>
+
+                    <div class="bg-brandDark/40 rounded-xl border border-white/5 overflow-hidden">
+                        <table class="w-full text-left text-sm text-gray-300">
+                            <thead class="bg-brandNavy text-gray-400 uppercase text-[11px] font-semibold border-b border-white/10">
+                                <tr>
+                                    <th class="p-3">Produto</th>
+                                    <th class="p-3">Preço</th>
+                                    <th class="p-3 text-center">Estoque</th>
+                                    <th class="p-3 text-right">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-products-table" class="divide-y divide-white/5">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div id="change-pass-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-brandNav border border-white/10 rounded-2xl p-6 shadow-2xl space-y-4">
+            <h3 class="text-lg font-bold text-white">Alterar Senha do Admin</h3>
+            <div>
+                <label class="block text-xs text-gray-400 font-semibold mb-1">Nova Senha</label>
+                <input type="password" id="new-pass-input" placeholder="Digite a nova senha..." class="w-full px-3 py-2 rounded-lg bg-brandDark border border-white/10 text-white text-sm focus:outline-none focus:border-brandBlue">
+            </div>
+            <div class="flex justify-end gap-2">
+                <button onclick="closeChangePassModal()" class="px-4 py-2 rounded-lg bg-gray-700 text-white text-xs font-bold">Cancelar</button>
+                <button onclick="saveNewPassword()" class="px-4 py-2 rounded-lg bg-brandBlue text-brandDark text-xs font-bold">Salvar Nova Senha</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden px-6 py-3 rounded-xl bg-brandNavy border border-brandBlue text-white text-sm font-semibold shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-brandBlue text-lg"></i>
+        <span id="toast-message">Mensagem aqui</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // CONFIG & CONSTANTS
+        const WHATSAPP_NUMBER = "5563992482906";
+        const DEFAULT_PASS = "admin123";
+
+        // DEFAULT INITIAL PRODUCTS CATALOG
+        const initialProducts = [
+            {
+                id: '1',
+                name: 'iPhone 16 Pro Max',
+                price: 9499.00,
+                storage: '256GB',
+                color: 'Titânio Deserto',
+                stock: 3,
+                condition: 'Novo / Lacrado',
+                image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80'
+            },
+            {
+                id: '2',
+                name: 'iPhone 15 Pro',
+                price: 6899.00,
+                storage: '128GB',
+                color: 'Titânio Natural',
+                stock: 4,
+                condition: 'Novo / Lacrado',
+                image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80'
+            },
+            {
+                id: '3',
+                name: 'iPhone 15',
+                price: 4999.00,
+                storage: '128GB',
+                color: 'Preto',
+                stock: 5,
+                condition: 'Novo / Lacrado',
+                image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&auto=format&fit=crop&q=80'
+            },
+            {
+                id: '4',
+                name: 'iPhone 14 Pro Max',
+                price: 5499.00,
+                storage: '256GB',
+                color: 'Roxo-profundo',
+                stock: 2,
+                condition: 'Seminovo Premium (Grade A+)',
+                image: 'https://images.unsplash.com/photo-1663499482523-1c0c1bae4ce1?w=600&auto=format&fit=crop&q=80'
+            },
+            {
+                id: '5',
+                name: 'iPhone 13',
+                price: 3599.00,
+                storage: '128GB',
+                color: 'Meia-noite',
+                stock: 6,
+                condition: 'Novo / Lacrado',
+                image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&auto=format&fit=crop&q=80'
+            }
+        ];
+
+        // APP STATE
+        let products = [];
+        let cart = [];
+        let isAdminLoggedIn = false;
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').innerText = new Date().getFullYear();
+            loadStorageData();
+            renderProducts();
+            updateCartBadge();
+        });
+
+        // LOCALSTORAGE PERSISTENCE
+        function loadStorageData() {
+            const storedProducts = localStorage.getItem('apple_jm_products');
+            if (storedProducts) {
+                products = JSON.parse(storedProducts);
+            } else {
+                products = initialProducts;
+                saveProductsToStorage();
+            }
+
+            if (!localStorage.getItem('apple_jm_admin_pass')) {
+                localStorage.setItem('apple_jm_admin_pass', DEFAULT_PASS);
+            }
+        }
+
+        function saveProductsToStorage() {
+            localStorage.setItem('apple_jm_products', JSON.stringify(products));
+        }
+
+        // RENDER PRODUCTS IN PUBLIC CATALOG
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const emptyState = document.getElementById('empty-state');
+            const searchVal = document.getElementById('search-input').value.toLowerCase();
+            const storageVal = document.getElementById('storage-filter').value;
+
+            const filtered = products.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(searchVal) || p.color.toLowerCase().includes(searchVal);
+                const matchesStorage = storageVal === '' || p.storage === storageVal;
+                return matchesSearch && matchesStorage;
+            });
+
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(p => {
+                const isOutOfStock = p.stock <= 0;
+                const formattedPrice = p.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                
+                const defaultImg = 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&auto=format&fit=crop&q=80';
+                const imgSrc = p.image && p.image.trim() !== '' ? p.image : defaultImg;
+
+                const cardHTML = `
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 relative group">
+                        <!-- Top Tag -->
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${p.condition.includes('Novo') ? 'bg-brandBlue/20 text-brandLightBlue border border-brandBlue/30' : 'bg-purple-500/20 text-purple-300 border border-purple-500/30'}">
+                                ${p.condition}
+                            </span>
+                            <span class="text-xs font-semibold ${isOutOfStock ? 'text-red-400' : 'text-green-400'} flex items-center gap-1">
+                                <i class="fa-solid ${isOutOfStock ? 'fa-circle-xmark' : 'fa-circle-check'}"></i>
+                                ${isOutOfStock ? 'Esgotado' : `${p.stock} un. em estoque`}
+                            </span>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 bg-brandDark/40 flex items-center justify-center p-2 relative">
+                            <img src="${imgSrc}" alt="${p.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.src='${defaultImg}'">
+                        </div>
+
+                        <!-- Specs & Details -->
+                        <div>
+                            <h3 class="font-extrabold text-white text-lg leading-tight mb-1">${p.name}</h3>
+                            <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                                <span class="bg-brandNavy px-2 py-0.5 rounded border border-white/5 font-medium">${p.storage}</span>
+                                <span>•</span>
+                                <span>${p.color}</span>
+                            </div>
+                            <div class="text-2xl font-black text-brandBlue mb-4">
+                                ${formattedPrice}
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="grid grid-cols-5 gap-2 pt-2 border-t border-white/5">
+                            <button onclick="directWhatsAppOrder('${p.id}')" ${isOutOfStock ? 'disabled' : ''} class="col-span-4 py-2.5 px-3 rounded-xl bg-green-500 hover:bg-green-600 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-md">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Comprar Agora
+                            </button>
+                            <button onclick="addToCart('${p.id}')" ${isOutOfStock ? 'disabled' : ''} class="col-span-1 p-2.5 rounded-xl bg-brandNavy hover:bg-brandBlue hover:text-brandDark disabled:bg-gray-800 disabled:text-gray-600 border border-white/10 text-white font-bold transition-all flex items-center justify-center">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        }
+
+        function filterProducts() {
+            renderProducts();
+        }
+
+        // WHATSAPP DIRECT ORDER
+        function directWhatsAppOrder(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const formattedPrice = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            const message = `Olá! Gostaria de comprar o seguinte aparelho na APPLE CENTER JM:
+
+📱 *${product.name}*
+💾 *Capacidade:* ${product.storage}
+🎨 *Cor:* ${product.color}
+🏷️ *Preço:* ${formattedPrice}
+⚙️ *Condição:* ${product.condition}
+
+O produto ainda está disponível?`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+        }
+
+        // CART SYSTEM
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.stock <= 0) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                if (cart[existingIndex].quantity < product.stock) {
+                    cart[existingIndex].quantity++;
+                    showToast(`Mais um ${product.name} adicionado ao carrinho!`);
+                } else {
+                    showToast(`Limite do estoque (${product.stock} un.) atingido!`);
+                }
+            } else {
+                cart.push({ ...product, quantity: 1 });
+                showToast(`${product.name} adicionado ao carrinho!`);
+            }
+
+            updateCartBadge();
+            renderCartModal();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartBadge();
+            renderCartModal();
+        }
+
+        function updateCartQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            const product = products.find(p => p.id === productId);
+            if (!item || !product) return;
+
+            const newQty = item.quantity + delta;
+            if (newQty > 0 && newQty <= product.stock) {
+                item.quantity = newQty;
+            } else if (newQty <= 0) {
+                removeFromCart(productId);
+            } else if (newQty > product.stock) {
+                showToast(`Quantidade máxima em estoque (${product.stock}) atingida.`);
+            }
+            updateCartBadge();
+            renderCartModal();
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function renderCartModal() {
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 space-y-2">
+                        <i class="fa-solid fa-cart-arrow-down text-4xl text-gray-600"></i>
+                        <p class="text-sm font-semibold">Seu carrinho está vazio.</p>
+                    </div>
+                `;
+                totalEl.innerText = 'R$ 0,00';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = '';
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+                container.innerHTML += `
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-brandDark/50 border border-white/5 gap-3">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-white text-sm leading-tight">${item.name}</h4>
+                            <p class="text-[11px] text-gray-400">${item.storage} • ${item.color}</p>
+                            <span class="text-xs font-semibold text-brandBlue">${formattedPrice}</span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateCartQuantity('${item.id}', -1)" class="w-6 h-6 rounded bg-brandNavy text-white flex items-center justify-center font-bold hover:bg-brandBlue hover:text-brandDark">-</button>
+                            <span class="text-xs font-bold text-white">${item.quantity}</span>
+                            <button onclick="updateCartQuantity('${item.id}', 1)" class="w-6 h-6 rounded bg-brandNavy text-white flex items-center justify-center font-bold hover:bg-brandBlue hover:text-brandDark">+</button>
+                        </div>
+
+                        <button onclick="removeFromCart('${item.id}')" class="text-red-400 hover:text-red-300 text-sm p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            totalEl.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                showToast('Adicione produtos ao carrinho antes de finalizar!');
+                return;
+            }
+
+            let message = `Olá! Gostaria de finalizar a compra dos seguintes itens na APPLE CENTER JM:
+
+`;
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                message += `${index + 1}. *${item.name}* (${item.storage} - ${item.color})
+`;
+                message += `   Qtd: ${item.quantity}x | Val. Un: ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+
+`;
+            });
+
+            message += `💰 *TOTAL DO PEDIDO:* ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+
+`;
+            message += `Como podemos prosseguir com o pagamento e entrega?`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+        }
+
+        function openCartModal() {
+            renderCartModal();
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        // ADMIN SYSTEM
+        function openAdminModal() {
+            if (isAdminLoggedIn) {
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+                document.getElementById('admin-pass-input').focus();
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+            document.getElementById('login-error').classList.add('hidden');
+            document.getElementById('admin-pass-input').value = '';
+        }
+
+        function loginAdmin() {
+            const enteredPass = document.getElementById('admin-pass-input').value;
+            const savedPass = localStorage.getItem('apple_jm_admin_pass') || DEFAULT_PASS;
+
+            if (enteredPass === savedPass) {
+                isAdminLoggedIn = true;
+                closeAdminModal();
+                openAdminDashboard();
+                showToast('Login efetuado com sucesso!');
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        function openAdminDashboard() {
+            document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+            renderAdminTable();
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard-modal').classList.add('hidden');
+            resetForm();
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            closeAdminDashboard();
+            showToast('Você saiu do painel administrativo.');
+        }
+
+        // ADMIN PRODUCT MANAGEMENT
+        function renderAdminTable() {
+            const tbody = document.getElementById('admin-products-table');
+            const countEl = document.getElementById('admin-prod-count');
+            tbody.innerHTML = '';
+
+            countEl.innerText = `${products.length} itens`;
+
+            products.forEach(p => {
+                const formattedPrice = p.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="p-3">
+                            <div class="font-bold text-white">${p.name}</div>
+                            <div class="text-[11px] text-gray-400">${p.storage} • ${p.color} • <span class="text-brandLightBlue">${p.condition}</span></div>
+                        </td>
+                        <td class="p-3 font-semibold text-brandBlue">${formattedPrice}</td>
+                        <td class="p-3 text-center">
+                            <div class="inline-flex items-center gap-1 bg-brandDark px-2 py-1 rounded border border-white/10">
+                                <button onclick="quickUpdateStock('${p.id}', -1)" class="text-xs px-1 hover:text-brandBlue font-bold">-</button>
+                                <span class="text-xs font-bold text-white px-1.5">${p.stock}</span>
+                                <button onclick="quickUpdateStock('${p.id}', 1)" class="text-xs px-1 hover:text-brandBlue font-bold">+</button>
+                            </div>
+                        </td>
+                        <td class="p-3 text-right space-x-2">
+                            <button onclick="editProduct('${p.id}')" class="p-1.5 text-brandBlue hover:text-white transition-colors" title="Editar">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button onclick="deleteProduct('${p.id}')" class="p-1.5 text-red-400 hover:text-red-300 transition-colors" title="Excluir">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('prod-id').value;
+            const name = document.getElementById('prod-name').value.trim();
+            const price = parseFloat(document.getElementById('prod-price').value);
+            const storage = document.getElementById('prod-storage').value;
+            const color = document.getElementById('prod-color').value.trim();
+            const stock = parseInt(document.getElementById('prod-stock').value);
+            const image = document.getElementById('prod-image').value.trim();
+            const condition = document.getElementById('prod-condition').value;
+
+            if (id) {
+                // EDIT EXISTING
+                const index = products.findIndex(p => p.id === id);
+                if (index > -1) {
+                    products[index] = { id, name, price, storage, color, stock, image, condition };
+                    showToast('Produto atualizado com sucesso!');
+                }
+            } else {
+                // ADD NEW
+                const newProduct = {
+                    id: Date.now().toString(),
+                    name,
+                    price,
+                    storage,
+                    color,
+                    stock,
+                    image,
+                    condition
+                };
+                products.unshift(newProduct);
+                showToast('Novo iPhone adicionado com sucesso!');
+            }
+
+            saveProductsToStorage();
+            renderAdminTable();
+            renderProducts();
+            resetForm();
+        }
+
+        function editProduct(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+
+            document.getElementById('prod-id').value = p.id;
+            document.getElementById('prod-name').value = p.name;
+            document.getElementById('prod-price').value = p.price;
+            document.getElementById('prod-storage').value = p.storage;
+            document.getElementById('prod-color').value = p.color;
+            document.getElementById('prod-stock').value = p.stock;
+            document.getElementById('prod-image').value = p.image || '';
+            document.getElementById('prod-condition').value = p.condition;
+
+            document.getElementById('form-title').innerHTML = `<i class="fa-solid fa-pen-to-square text-brandBlue"></i> Editar iPhone`;
+            document.getElementById('form-btn-submit').innerText = 'Atualizar Produto';
+            document.getElementById('form-btn-cancel').classList.remove('hidden');
+        }
+
+        function resetForm() {
+            document.getElementById('product-form').reset();
+            document.getElementById('prod-id').value = '';
+            document.getElementById('form-title').innerHTML = `<i class="fa-solid fa-plus-circle text-brandBlue"></i> Adicionar Novo iPhone`;
+            document.getElementById('form-btn-submit').innerText = 'Salvar Produto';
+            document.getElementById('form-btn-cancel').classList.add('hidden');
+        }
+
+        function deleteProduct(id) {
+            if (confirm('Tem certeza que deseja excluir este produto do catálogo?')) {
+                products = products.filter(p => p.id !== id);
+                saveProductsToStorage();
+                renderAdminTable();
+                renderProducts();
+                showToast('Produto removido com sucesso!');
+            }
+        }
+
+        function quickUpdateStock(id, delta) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                const newStock = product.stock + delta;
+                if (newStock >= 0) {
+                    product.stock = newStock;
+                    saveProductsToStorage();
+                    renderAdminTable();
+                    renderProducts();
+                }
+            }
+        }
+
+        // PASSWORD CHANGE MANAGEMENT
+        function openChangePassModal() {
+            document.getElementById('change-pass-modal').classList.remove('hidden');
+        }
+
+        function closeChangePassModal() {
+            document.getElementById('change-pass-modal').classList.add('hidden');
+            document.getElementById('new-pass-input').value = '';
+        }
+
+        function saveNewPassword() {
+            const newPass = document.getElementById('new-pass-input').value.trim();
+            if (newPass.length < 4) {
+                showToast('A senha deve ter pelo menos 4 caracteres.');
+                return;
+            }
+
+            localStorage.setItem('apple_jm_admin_pass', newPass);
+            closeChangePassModal();
+            showToast('Senha de administrador alterada com sucesso!');
+        }
+
+        // TOAST NOTIFICATION HELPERS
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+
+            toastMsg.innerText = message;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
